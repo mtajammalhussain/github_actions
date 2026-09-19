@@ -1,0 +1,28 @@
+name: Pytest & flake8 control push
+on: push
+
+jobs:
+  qa:
+    name: check tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install Pytest & Flake8
+        run: |
+          pip install pytest
+          pip install flake8
+
+      - name: Run tests
+        run: |
+          pytest
+
+      - name: Run flake8
+        uses: py-actions/flake8@v2
