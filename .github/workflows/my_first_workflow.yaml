@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: echo a string
-        run: echoo "Hello world"
+        run: ecoo "Hello world"
 
       - name: multiline script
         run: |
